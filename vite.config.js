@@ -3,16 +3,34 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+
   build: {
     chunkSizeWarningLimit: 1500,
+
     rollupOptions: {
       output: {
         manualChunks: {
-          three: ["three", "@react-three/fiber", "@react-three/drei"],
-          motion: ["gsap", "framer-motion"],
-          postfx: ["postprocessing", "@react-three/postprocessing"]
+          three: [
+            "three",
+            "@react-three/fiber",
+            "@react-three/drei"
+          ],
+
+          motion: [
+            "gsap",
+            "framer-motion"
+          ],
+
+          postfx: [
+            "postprocessing",
+            "@react-three/postprocessing"
+          ]
         }
       }
     }
+  },
+
+  preview: {
+    allowedHosts: true
   }
 });
